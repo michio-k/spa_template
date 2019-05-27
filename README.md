@@ -1,9 +1,11 @@
 # SPA
 
 ## overview
-dockerでdjango+vue+nginx+postgresのSPAのサイトを作るための雛形です。
+django（API）＋vuejs（フロント）＋nginx＋postgres（DB）の
+SPAのサイトを作るための雛形。
 
 ## environment
+Dockerとdocker-compose。
 - Docker version 18.09.2, build 6247962
 - docker-compose version 1.23.2, build 1110ad01
 
@@ -14,7 +16,7 @@ dockerでdjango+vue+nginx+postgresのSPAのサイトを作るための雛形で�
  - nginx
  - django
 
-## プロジェクト名
+## アプリ
 django: djangoproject
 vue: vueproject
 
@@ -28,19 +30,21 @@ vue: vueproject
 `docker-compose down`
 
 ### django開発サーバを起動する
-`docker container exec -it test_django_1 djangoproject/manage.py runserver 0.0.0.0:8000`
+`docker container exec -it spa_django djangoproject/manage.py runserver 0.0.0.0:8000`
 
-### nodeパッケージインストール
-`docker container exec -it test_vue_1 npm install`
+### npm install
+`docker container exec -it spa_vue npm install`
 
 ### webpack dev serverを起動する
-`docker container exec -it test_vue_1 npm run dev`
+`docker container exec -it spa_vue npm run dev`
 
 #### vueのbuild
-`docker container exec -it test_vue_1 npm run build`
+`docker container exec -it spa_vue npm run build`
 
 ### コンテナに入る
-docker container exec -it test_vue_1 sh
+`docker container exec -it spa_django bash`
+`docker container exec -it spa_nginx bash`
+`docker container exec -it spa_vue sh`
 
 ### 動作確認
 バックエンド：http://0.0.0.0:8000/

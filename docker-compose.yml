@@ -1,6 +1,7 @@
 version: '3'
 services:
   nginx:
+    container_name: spa_nginx
     build: ./nginx
     ports:
       - '9000:80'
@@ -11,6 +12,7 @@ services:
       - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
 
   vue:
+    container_name: spa_vue
     build: ./vue
     volumes:
       - ./vue/vueproject:/app
@@ -19,6 +21,7 @@ services:
       - '8080:8080'
 
   django:
+    container_name: spa_django
     build: ./django
     volumes:
       - ./django/code:/code
