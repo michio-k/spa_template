@@ -1,5 +1,5 @@
 FROM nginx:latest
-MAINTAINER michiokuramochi
+MAINTAINER michio-k
 
 RUN apt-get update && \
     apt-get install -y vim less

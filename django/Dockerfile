@@ -1,6 +1,6 @@
 FROM python:3.7
 ENV PYTHONUNBUFFERED 1
-MAINTAINER michiokuramochi
+MAINTAINER michio-k
 
 RUN mkdir /code
 WORKDIR /code

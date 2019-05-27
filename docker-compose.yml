@@ -24,4 +24,4 @@ services:
       - ./django/code:/code
     tty: true
     ports:
-      - '8001:8000'
+      - '8000:8000'
