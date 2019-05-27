@@ -47,6 +47,6 @@ vue: vueproject
 `docker container exec -it spa_vue sh`
 
 ### 動作確認
-バックエンド：http://0.0.0.0:8000/
-フロントエンド：http://0.0.0.0:8080/
-webサーバ：http://0.0.0.0:9000/
+バック（開発）：http://0.0.0.0:8000/
+フロント（開発）：http://0.0.0.0:8080/
+nginx：http://0.0.0.0:9000/

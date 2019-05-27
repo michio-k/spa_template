@@ -1,4 +1,9 @@
 version: '3'
+
+volumes:
+  db-volumes:
+    driver: local
+
 services:
   nginx:
     container_name: spa_nginx
@@ -23,8 +28,19 @@ services:
   django:
     container_name: spa_django
     build: ./django
+    command: python djangoproject/manage.py runserver 0.0.0.0:8000
     volumes:
       - ./django/code:/code
     tty: true
     ports:
       - '8000:8000'
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: spa_postgres
+    build: ./postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - db-volumes:/var/lib/postgresql/data
